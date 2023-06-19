@@ -5,6 +5,7 @@
 
 package com.trabalholpa.trabalholpa;
 
+import com.trabalholpa.trabalholpa.Telas.InformacoesBasicas;
 import javax.swing.JFrame;
 
 /**
@@ -12,17 +13,28 @@ import javax.swing.JFrame;
  * @author ht3015181
  */
 public class TrabalhoLPA {
-
-    static JFrame frame = new JFrame();
     
-    public static void main(String[] args) {
+    public TrabalhoLPA() {
+    
+        JFrame frame = new JFrame();
+        InformacoesBasicas infBasc = new InformacoesBasicas(this);
         
         frame.setTitle("D&D Manager");
         frame.setLocationRelativeTo(null);
-        frame.add(new CriacaoPt1());
+        frame.add(infBasc);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+    
+    }
+    
+    public static void main(String[] args) {
         
+        new TrabalhoLPA();
+        
+    }
+    
+    public void callback(InformacoesBasicas infBasc) {
+        System.out.print(infBasc.getNome());
     }
 }

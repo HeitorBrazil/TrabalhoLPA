@@ -4,17 +4,24 @@
  */
 package com.trabalholpa.trabalholpa.Telas;
 
+import com.trabalholpa.trabalholpa.TrabalhoLPA;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ht3015181
  */
 public class InformacoesBasicas extends javax.swing.JPanel {
-
     /**
      * Creates new form InformacoesBasicas
      */
-    public InformacoesBasicas() {
+    
+    private TrabalhoLPA t;
+    
+    public InformacoesBasicas(TrabalhoLPA t) {
         initComponents();
+        this.t = t;
     }
 
     /**
@@ -161,7 +168,15 @@ public class InformacoesBasicas extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String nome = getNome();
+        String classe = getClasse();
+        String raca = getRaca();
+        String antec = getAntecedente();
+        String alinh = getAlinhamento();
+        String level = getLevel();
+        String jogador = getJogador();
+        
+        t.callback(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -183,4 +198,34 @@ public class InformacoesBasicas extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    public String getClasse() {
+        return String.valueOf(jComboBox1.getSelectedItem());
+    }
+
+    public String getRaca() {
+        return String.valueOf(jComboBox2.getSelectedItem());
+    }
+
+    public String getAntecedente() {
+        return String.valueOf(jComboBox3.getSelectedItem());
+    }
+
+    public String getAlinhamento() {
+        return String.valueOf(jComboBox4.getSelectedItem());
+    }
+    
+    public String getLevel() {
+        return String.valueOf(jComboBox5.getSelectedItem());
+    }
+
+    public String getNome() {
+        return jTextField1.getText();
+    }
+
+    public String getJogador() {
+        return String.valueOf(jTextField2.getText());
+    }
+    
 }
+
