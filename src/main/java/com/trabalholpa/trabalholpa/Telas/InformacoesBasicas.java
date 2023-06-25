@@ -176,7 +176,7 @@ public class InformacoesBasicas extends javax.swing.JPanel {
         String level = getLevel();
         String jogador = getJogador();
         
-        t.callback(this);
+        t.callback(this, 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
