@@ -4,6 +4,8 @@
  */
 package com.trabalholpa.trabalholpa.Telas;
 
+import com.trabalholpa.trabalholpa.TrabalhoLPA;
+
 /**
  *
  * @author ht3015181
@@ -13,8 +15,12 @@ public class FichaFinal extends javax.swing.JPanel {
     /**
      * Creates new form FichaFinal
      */
-    public FichaFinal() {
+    
+    private TrabalhoLPA t;
+    
+    public FichaFinal(TrabalhoLPA t) {
         initComponents();
+        this.t = t;
     }
 
     /**
@@ -30,11 +36,11 @@ public class FichaFinal extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 507, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
+            .addGap(0, 747, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

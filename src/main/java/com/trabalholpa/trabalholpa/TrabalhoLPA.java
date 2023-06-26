@@ -6,6 +6,8 @@
 package com.trabalholpa.trabalholpa;
 
 import com.trabalholpa.trabalholpa.Telas.*;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -16,16 +18,27 @@ import javax.swing.JPanel;
 public class TrabalhoLPA {
     
     JFrame frame;
+    JPanel jp;
     
     public TrabalhoLPA() {
     
         frame = new JFrame();
-        InformacoesBasicas infBasc = new InformacoesBasicas(this);
+        jp = new JPanel(new CardLayout());
+        
+        jp.add(new Menu(this));
+        jp.add(new InformacoesBasicas(this));
+        jp.add(new Atributos(this));
+        jp.add(new Pericias(this));
+        jp.add(new Personalidade(this));
+        jp.add(new EquipamentoPt1(this));
+        jp.add(new EquipamentoPt2(this));
+        jp.add(new Magias(this));
+        jp.add(new FichaFinal(this));
         
         frame.setTitle("D&D Manager");
-        frame.setLocationRelativeTo(null);
-        frame.add(infBasc);
+        frame.add(jp);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     
@@ -33,43 +46,18 @@ public class TrabalhoLPA {
     
     public void trocarTelas(int novaTela) {
         
-        this.frame.removeAll();
-        this.frame.setVisible(false);
+        Component actualPanel = null;
         
-        switch(novaTela) {
-            case 1:
-                Atributos at = new Atributos();
-                this.frame.add(at);
-                break;
-                
-            case 2:
-                Pericias pr = new Pericias();
-                this.frame.add(pr);
-                break;
-                
-            case 3:
-                Personalidade per = new Personalidade();
-                this.frame.add(per);
-                break;
-                
-            case 4:
-                EquipamentoPt1 eq1 = new EquipamentoPt1();
-                this.frame.add(eq1);
-                break;
-                
-            case 5:
-                
-                break;
-                
-            case 6:
-                
-                break;
-                
-            case 7:
-                
-                break;
+        for(int i = 0; i < jp.getComponentCount(); i++) {
+            if ( jp.getComponent(i).isVisible() ) {
+                actualPanel = jp.getComponent(i);
+            }
         }
-        this.frame.setVisible(true);
+        
+        actualPanel.setVisible(false);
+        jp.getComponent(novaTela).setVisible(true);
+        frame.pack();
+        
     }
     
     public static void main(String[] args) {
@@ -78,8 +66,7 @@ public class TrabalhoLPA {
         
     }
     
-    public void callback(InformacoesBasicas infBasc, int novaTela) {
-        System.out.print(infBasc.getNome());
+    public void callback(JPanel panel, int novaTela) {
         trocarTelas(novaTela);
     }
 }
