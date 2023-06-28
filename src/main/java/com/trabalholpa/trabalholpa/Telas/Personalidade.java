@@ -91,7 +91,7 @@ public class Personalidade extends javax.swing.JPanel {
 
         jLabel2.setText("Traços:");
 
-        jLabel3.setText("Ideias:");
+        jLabel3.setText("Ideais:");
 
         jLabel4.setText("Vínculos:");
 
@@ -123,7 +123,7 @@ public class Personalidade extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
+                        .addGap(189, 189, 189)
                         .addComponent(jLabel1)))
                 .addContainerGap(132, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -134,7 +134,7 @@ public class Personalidade extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,21 +142,18 @@ public class Personalidade extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(57, 57, 57)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel3)
                         .addGap(40, 40, 40)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(jLabel4)
                         .addGap(46, 46, 46)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -164,7 +161,7 @@ public class Personalidade extends javax.swing.JPanel {
                         .addComponent(jLabel5)))
                 .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,4 +186,20 @@ public class Personalidade extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     // End of variables declaration//GEN-END:variables
+
+    public String getTracos() {
+        return jTextArea1.getText();
+    }
+
+    public String getIdeais() {
+        return jTextArea2.getText();
+    }
+
+    public String getLacos() {
+        return jTextArea3.getText();
+    }
+
+    public String getFraquezas() {
+        return jTextArea4.getText();
+    }
 }
