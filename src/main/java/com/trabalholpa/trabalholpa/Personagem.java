@@ -26,7 +26,7 @@ public class Personagem {
     
     //Personalidade
     private String tracos;
-    private String ideias;
+    private String ideais;
     private String lacos;
     private String fraquezas;
     
@@ -97,16 +97,29 @@ public class Personagem {
         this.level = level;
     }
 
-    public int[] getAtributos() {
-        return atributos;
+    public String getAtributos(int i) {
+        return String.valueOf(atributos[i]);
     }
 
     public void setAtributos(int[] atributos) {
         this.atributos = atributos;
     }
+    
+    public String getModAtributos(int i) {
+        return String.valueOf((int) Math.floor((float) (atributos[i] - 10) / 2));
+    }
 
-    public ArrayList<String> getTreinadas() {
-        return treinadas;
+    public String getTreinadas() {
+        String listaTreinadas = "";
+        for (int i = 0; i < treinadas.size(); i++) {
+            if(i == 0) {
+                listaTreinadas += treinadas.get(i);
+            } else {
+                listaTreinadas += ", " + treinadas.get(i);
+            }
+        }
+
+        return listaTreinadas;
     }
 
     public void setTreinadas(ArrayList<String> treinadas) {
@@ -121,12 +134,12 @@ public class Personagem {
         this.tracos = tracos;
     }
 
-    public String getIdeias() {
-        return ideias;
+    public String getIdeais() {
+        return ideais;
     }
 
-    public void setIdeias(String ideias) {
-        this.ideias = ideias;
+    public void setIdeais(String ideias) {
+        this.ideais = ideias;
     }
 
     public String getLacos() {
@@ -151,6 +164,58 @@ public class Personagem {
 
     public void setArmadura(String armadura) {
         this.armadura = armadura;
+    }
+    
+    public String getCA() {
+        String armadura = this.getArmadura();
+        int CA;
+        switch(armadura) {
+            case "Acolchoada":
+                CA = 11 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Couro":
+                CA = 11 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Couro Batido":
+                CA = 12 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Gibão de Peles":
+                CA = 12 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Camisão de Malha":
+                CA = 13 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Brunea":
+                CA = 14 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Peitoral":
+                CA = 14 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Meia-Armadura":
+                CA = 15 + Integer.parseInt(getModAtributos(1));
+                break;
+            case "Cota de Anéis":
+                CA = 15;
+                break;
+            case "Cota de Malha":
+                CA = 16;
+                break;
+            case "Cota de Talhas":
+                CA = 17;
+                break;
+            case "Placas":
+                CA = 18;
+                break;
+            default:
+                CA = 10;
+                break;
+        }
+        
+        if(this.isEscudo()){
+            CA += 2;
+        }
+        
+        return String.valueOf(CA);
     }
 
     public boolean isEscudo() {
@@ -177,5 +242,55 @@ public class Personagem {
         this.outrosEquip = outrosEquip;
     }
     
+    public String getVida() {
+        if(this.getClasse().equals("Bardo") || this.getClasse().equals("Clérigo") || this.getClasse().equals("Bruxo") || this.getClasse().equals("Druida") || this.getClasse().equals("Ladino") || this.getClasse().equals("Monge")) {
+            return String.valueOf(8 + Integer.parseInt(this.getModAtributos(3)));
+        } else if(this.getClasse().equals("Guerreiro") || this.getClasse().equals("Paladino") || this.getClasse().equals("Patrulheiro")) {
+            return String.valueOf(10 + Integer.parseInt(this.getModAtributos(3)));
+        } else if(this.getClasse().equals("Feiticeiro") || this.getClasse().equals("Mago")) {
+            return String.valueOf(6 + Integer.parseInt(this.getModAtributos(3)));
+        } else {
+            return String.valueOf(12 + Integer.parseInt(this.getModAtributos(3)));
+        }
+    }
     
+    public String getDeslocamento() {
+        if(this.getRaca().equals("Anão") || this.getRaca().equals("Halfling") || this.getRaca().equals("Gnomo")) {
+            return "7,5m";
+        } else {
+            return "9m";
+        }
+    }
+    
+    public String getSalvaguardas() {
+        if(this.getClasse().equals("Bárbaro") || this.getClasse().equals("Guerreiro")) {
+            return "Força, Constituição";
+        } else if(this.getClasse().equals("Bruxo") || this.getClasse().equals("Clérigo") || this.getClasse().equals("Paladino")) {
+            return "Sabedoria, Carisma";
+        } else if(this.getClasse().equals("Druida") || this.getClasse().equals("Mago")) {
+            return "Inteligência, Sabedoria";
+        } else if(this.getClasse().equals("Monge") || this.getClasse().equals("Patrulheiro")) {
+            return "Força, Destreza";
+        } else if(this.getClasse().equals("Bardo")) {
+            return "Destreza, Carisma";
+        } else if(this.getClasse().equals("Ladino")) {
+            return "Destreza, Inteligência";
+        } else {
+            return "Constituição, Carisma";
+        }
+    }
+    
+    public String getBonus() {
+        if(Integer.parseInt(this.getLevel()) < 5) {
+            return "+2";
+        } else if(Integer.parseInt(this.getLevel()) < 9) {
+            return "+3";
+        } else if(Integer.parseInt(this.getLevel()) < 13) {
+            return "+4";
+        } else if(Integer.parseInt(this.getLevel()) < 17) {
+            return "+5";
+        } else {
+            return "+6";
+        }
+    }
 }

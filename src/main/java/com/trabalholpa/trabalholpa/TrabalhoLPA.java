@@ -36,9 +36,8 @@ public class TrabalhoLPA {
         jp.add(new Personalidade(this));
         jp.add(new EquipamentoPt1(this));
         jp.add(new EquipamentoPt2(this));
-        jp.add(new FichaFinal(this));
         
-        frame.setTitle("D&D Manager");
+        frame.setTitle("D&D Creator");
         frame.add(jp);
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -76,7 +75,8 @@ public class TrabalhoLPA {
         p.setNome(panel.getNome());
         p.setClasse(panel.getClasse());
         p.setRaca(panel.getRaca());
-        p.setAntc(panel.getAlinhamento());
+        p.setAntc(panel.getAntecedente());
+        p.setAlinh(panel.getAlinhamento());
         p.setLevel(panel.getLevel());
         p.setJogador(panel.getJogador());
 
@@ -144,7 +144,7 @@ public class TrabalhoLPA {
 
     public void callback(Personalidade panel, int novaTela) {
         p.setTracos(panel.getTracos());
-        p.setIdeias(panel.getIdeais());
+        p.setIdeais(panel.getIdeais());
         p.setLacos(panel.getLacos());
         p.setFraquezas(panel.getFraquezas());
 
@@ -161,6 +161,8 @@ public class TrabalhoLPA {
 
     public void callback(EquipamentoPt2 panel, int novaTela) {
         p.setOutrosEquip(panel.getOutrosEquip());
+
+        jp.add(new FichaFinal(this, p));
 
         trocarTelas(novaTela);
     }

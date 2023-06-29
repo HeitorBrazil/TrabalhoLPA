@@ -188,11 +188,11 @@ public class Personalidade extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public String getTracos() {
-        return jTextArea1.getText();
+        return jTextArea2.getText();
     }
 
     public String getIdeais() {
-        return jTextArea2.getText();
+        return jTextArea4.getText();
     }
 
     public String getLacos() {
@@ -200,6 +200,6 @@ public class Personalidade extends javax.swing.JPanel {
     }
 
     public String getFraquezas() {
-        return jTextArea4.getText();
+        return jTextArea1.getText();
     }
 }
